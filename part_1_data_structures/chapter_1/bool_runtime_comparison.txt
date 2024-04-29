@@ -1,0 +1,29 @@
+import math
+
+
+class Vector:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"Vector({self.x!r}, {self.y!r})"
+
+    def __abs__(self):
+        return math.hypot(self.x, self.y)
+
+    def __bool__(self):
+        """faster implementation"""
+        return bool(self.x or self.y)
+
+    # def __bool__(self):
+    #     """slower implementation of __bool__."""
+    #     return bool(abs(self))
+
+if __name__ == "__main__":
+    v0 = Vector()
+    v1 = Vector(4, 3)
+
+    for _ in range(10):
+        bool(v0)
+        bool(v1)
